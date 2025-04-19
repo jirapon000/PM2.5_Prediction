@@ -1,0 +1,574 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;  /* Dark Navy Blue */
+}
+
+.header {
+    background-color: #34495e;  /*Slightly darker navy for header */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* This will align everything to the left */
+    width: 100%;
+    padding: 0.5rem;
+    text-align: center;
+    position: absolute;
+}
+
+.header .logo {
+    width: 40px;  /* Set the width of the logo */
+    height: 40px; /* Set the height of the logo */
+    margin-right: 1rem; /* Space between the logo and title */
+}
+
+.header h1 {
+    color: white;
+    font-size: 1rem;
+    margin-right: auto;  /* This ensures the header text aligns to the left */
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.main-section {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.aqi-card {
+    text-align: center;
+    background-color: #d9dcdf;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.aqi-circle-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aqi-circle {
+    font-size: 48px;
+    color: white;
+    padding: 30px;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.range-bar-container {
+    position: relative;
+    width: 100%;
+    height: 0.4em;
+    margin-top: 1em;
+    border-radius: 0.5em;
+}
+
+.range-bar {
+    display: inline-block;
+    height: 100%;
+}
+
+.marker {
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid white;
+    transition: left 0.3s ease;
+}
+
+.predicted-values {
+    margin-top: 20px;
+}
+
+.predicted-values div {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #34495e;
+}
+
+.pollutants-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.pollutant-card {
+    background-color: #2c3e50;  /* Darker background for each pollutant card */
+    color: white;  /* White text color */
+    padding: 15px;
+    border-radius: 15px;  /* Rounded corners */
+    width: 150px;
+    text-align: left;  /* Align text to the left */
+    margin-bottom: 15px; /* Space between the cards */
+    display: flex;
+    align-items: center;  /* Center icon and text vertically */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out; /* Smooth hover transition */
+}
+
+.pollutants-section .pollutant-card:hover {
+    background-color: #34495e;  /* Slightly lighter background on hover */
+    transform: scale(1.05);  /* Slightly increase the size of the card on hover */
+}
+
+.pollutants-section .pollutant-card span {
+    font-weight: bold;
+    margin-left: 10px;  /* Space between icon and text */
+}
+
+.pollutants-section .pollutant-card .pollutant-icon {
+    font-size: 28px;  /* Adjust icon size */
+    margin-right: 10px;  /* Space between icon and text */
+}
+
+form input {
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #2980b9;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #3498db;
+}
+
+.footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    margin-top: auto;
+}
+
+/* AQI and Prediction Bar Specific Styles */
+.aqi-emoji {
+    font-size: 20px;
+    margin-top: 1em;
+}
+
+.range-bar-container {
+    display: flex;
+    width: 100%;
+}
+
+.range-bar {
+    flex-grow: 1;
+}
+
+.range-bar-container div {
+    height: 10px;
+}
+
+/* Map Section Styles */
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+.map-wrapper {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border: 2px solid #ddd;
+    max-width: 1000px; /* Adjust this value to set the map's maximum width */
+    margin: 0 auto; /* This keeps the map-wrapper centered */
+}
+
+
+.dashboard {
+    display: flex;
+    justify-content: center; /* This centers the dashboard horizontally */
+    align-items: center; /* This centers the dashboard vertically */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line if there isn't enough space */
+    gap: 1rem; /* Space between items */
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.metric-box {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effects */
+    min-height: 120px;
+    position: relative;
+    width: 15%; /* Adjust the width to make them fit in one row */
+    display: block; /* Ensures the link fills the box area */
+    color: inherit; /* Inherits text color from parent elements */
+    text-decoration: none; /* Removes underline from links */
+}
+
+@media (max-width: 768px) {
+    .metric-box {
+        width: 30%; /* Adjust width for smaller screens */
+    }
+}
+
+.metric-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
+}
+
+.metric-title {
+    color: #2c3e50;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.metric-value {
+    color: #3498db;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.metric-image {
+    width: 100%;
+    height: 60px;
+    margin-top: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.metric-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.section-title {
+    color: #34495e;
+    font-size: 2rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+.city-rankings {
+    width: 100%;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.city-rankings h2 {
+    color: #34495e;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: #34495e;
+    color: white;
+    font-size: 1.2rem;
+}
+
+table td {
+    background-color: #f9f9f9;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+table td img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#container {
+    max-width: 1200px; /* or lower, depending on the desired maximum width */
+    margin: 0 auto; /* This keeps it centered */
+    padding: 20px;
+}
+
+
+
+
+.legend-container {
+    margin-top: 25px;
+    text-align: center;
+}
+.legend {
+    display: inline-flex;
+    gap: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 15px;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.legend-color {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+.legend-color:hover {
+    transform: scale(1.1);
+}
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: #2c3e50;
+    font-family: Arial, sans-serif;
+}
+.pm-label {
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 1px 1px white;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.filters {
+    margin-bottom: 20px;
+    text-align: left;
+}
+#timeRangeFilter {
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 150px;
+    background-color: white;
+}
+#aqiChart {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 900px;
+    height: 600px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin: 0;
+}
+
+h2 {
+    color: #34495e;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+    color: #2c3e50;
+}
+
+.range-table {
+    margin-top: 30px;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #2c3e50;
+    color: white;
+    font-size: 1.1rem;
+}
+
+table td {
+    background-color: #ecf0f1;
+    font-size: 1rem;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.emoji {
+    font-size: 1.5rem;
+}
+
+.emoji.cold {
+    color: #3498db;
+}
+
+.emoji.cool {
+    color: #2ecc71;
+}
+
+.emoji.moderate {
+    color: #f39c12;
+}
+
+.emoji.warm {
+    color: #e67e22;
+}
+
+.emoji.hot {
+    color: #c0392b;
+}
+
+/* Container for the filters */
+.filter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* space between filter groups */
+    padding: 10px 20px;
+    margin: 20px 0;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+/* Individual filter group styling */
+.filter {
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the labels */
+.filter label {
+    font-weight: bold;
+    margin-right: 8px;
+    color: #333;
+}
+
+/* Style for the dropdowns */
+.filter select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.filter select:focus {
+    border-color: #007BFF;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full height of the viewport */
+    text-align: center;
+}
