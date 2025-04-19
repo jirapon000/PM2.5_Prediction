@@ -1,0 +1,199 @@
+Station,Model,Feature,Importance
+station_11T,RandomForest,temp,0.016262054627580597
+station_11T,RandomForest,population_density,0.0
+station_11T,RandomForest,factory_area,0.0
+station_11T,RandomForest,season_Cool Season,0.00387453550730089
+station_11T,RandomForest,season_Hot Season,3.958040671199717e-06
+station_11T,RandomForest,season_Rainy Season,0.0016254403418730252
+station_11T,RandomForest,pm10_log,0.9099175525625833
+station_11T,RandomForest,so2_log,0.027681079443611385
+station_11T,RandomForest,o3_log,0.015105200629510922
+station_11T,RandomForest,co_log,0.01284624145285297
+station_11T,RandomForest,no2_log,0.01268393739401569
+station_11T,XGBoost,temp,0.017135651782155037
+station_11T,XGBoost,population_density,0.0
+station_11T,XGBoost,factory_area,0.0
+station_11T,XGBoost,season_Cool Season,0.17693889141082764
+station_11T,XGBoost,season_Hot Season,0.026406005024909973
+station_11T,XGBoost,season_Rainy Season,0.07274378091096878
+station_11T,XGBoost,pm10_log,0.34270042181015015
+station_11T,XGBoost,so2_log,0.04655865207314491
+station_11T,XGBoost,o3_log,0.05923200771212578
+station_11T,XGBoost,co_log,0.21380598843097687
+station_11T,XGBoost,no2_log,0.04447857663035393
+station_11T,DecisionTree,temp,0.0267747050904604
+station_11T,DecisionTree,population_density,0.0
+station_11T,DecisionTree,factory_area,0.0
+station_11T,DecisionTree,season_Cool Season,0.0046735445419147925
+station_11T,DecisionTree,season_Hot Season,6.662127841772544e-05
+station_11T,DecisionTree,season_Rainy Season,0.0008748886215406452
+station_11T,DecisionTree,pm10_log,0.884064621586725
+station_11T,DecisionTree,so2_log,0.03151012973123737
+station_11T,DecisionTree,o3_log,0.018407469930763354
+station_11T,DecisionTree,co_log,0.017124563306408398
+station_11T,DecisionTree,no2_log,0.016503455912532494
+station_12T,RandomForest,temp,0.010928210519104226
+station_12T,RandomForest,population_density,0.0
+station_12T,RandomForest,factory_area,0.0
+station_12T,RandomForest,season_Cool Season,0.0011585633548963348
+station_12T,RandomForest,season_Hot Season,1.9867642504043524e-05
+station_12T,RandomForest,season_Rainy Season,0.0014157075579975893
+station_12T,RandomForest,pm10_log,0.9219334868943541
+station_12T,RandomForest,so2_log,0.014489060441163479
+station_12T,RandomForest,o3_log,0.01855241303761788
+station_12T,RandomForest,co_log,0.023024816549056245
+station_12T,RandomForest,no2_log,0.00847787400330608
+station_12T,XGBoost,temp,0.022903693839907646
+station_12T,XGBoost,population_density,0.0
+station_12T,XGBoost,factory_area,0.0
+station_12T,XGBoost,season_Cool Season,0.04793926328420639
+station_12T,XGBoost,season_Hot Season,0.011914637871086597
+station_12T,XGBoost,season_Rainy Season,0.06503560394048691
+station_12T,XGBoost,pm10_log,0.42382025718688965
+station_12T,XGBoost,so2_log,0.0407782606780529
+station_12T,XGBoost,o3_log,0.07435528188943863
+station_12T,XGBoost,co_log,0.21651895344257355
+station_12T,XGBoost,no2_log,0.09673409909009933
+station_12T,DecisionTree,temp,0.008497237137804974
+station_12T,DecisionTree,population_density,0.0
+station_12T,DecisionTree,factory_area,0.0
+station_12T,DecisionTree,season_Cool Season,0.0011560890969196259
+station_12T,DecisionTree,season_Hot Season,2.5173878203433813e-05
+station_12T,DecisionTree,season_Rainy Season,0.0005117244304336018
+station_12T,DecisionTree,pm10_log,0.9173118746019489
+station_12T,DecisionTree,so2_log,0.01362735266245083
+station_12T,DecisionTree,o3_log,0.020556525513813522
+station_12T,DecisionTree,co_log,0.03001238058594943
+station_12T,DecisionTree,no2_log,0.008301642092475714
+station_15T,RandomForest,temp,0.020055773333404935
+station_15T,RandomForest,population_density,0.0
+station_15T,RandomForest,factory_area,0.0
+station_15T,RandomForest,season_Cool Season,0.003943631421099514
+station_15T,RandomForest,season_Hot Season,2.7731790405295552e-05
+station_15T,RandomForest,season_Rainy Season,0.002324615873661051
+station_15T,RandomForest,pm10_log,0.885780653527753
+station_15T,RandomForest,so2_log,0.03255898770193942
+station_15T,RandomForest,o3_log,0.019598361991664617
+station_15T,RandomForest,co_log,0.018114164085558406
+station_15T,RandomForest,no2_log,0.017596080274513676
+station_15T,XGBoost,temp,0.015909647569060326
+station_15T,XGBoost,population_density,0.0
+station_15T,XGBoost,factory_area,0.0
+station_15T,XGBoost,season_Cool Season,0.1710653305053711
+station_15T,XGBoost,season_Hot Season,0.025946998968720436
+station_15T,XGBoost,season_Rainy Season,0.07936210185289383
+station_15T,XGBoost,pm10_log,0.3458504378795624
+station_15T,XGBoost,so2_log,0.047049980610609055
+station_15T,XGBoost,o3_log,0.06058338284492493
+station_15T,XGBoost,co_log,0.2086181342601776
+station_15T,XGBoost,no2_log,0.04561392590403557
+station_15T,DecisionTree,temp,0.013541860208493878
+station_15T,DecisionTree,population_density,0.0
+station_15T,DecisionTree,factory_area,0.0
+station_15T,DecisionTree,season_Cool Season,0.00439488460130045
+station_15T,DecisionTree,season_Hot Season,0.0
+station_15T,DecisionTree,season_Rainy Season,0.005837380408629545
+station_15T,DecisionTree,pm10_log,0.9027007060575623
+station_15T,DecisionTree,so2_log,0.02661397695493883
+station_15T,DecisionTree,o3_log,0.016455474391014854
+station_15T,DecisionTree,co_log,0.014412444427140394
+station_15T,DecisionTree,no2_log,0.01604327295091999
+station_3T,RandomForest,temp,0.012350360487517385
+station_3T,RandomForest,population_density,0.0
+station_3T,RandomForest,factory_area,0.0
+station_3T,RandomForest,season_Cool Season,0.0013024147934236176
+station_3T,RandomForest,season_Hot Season,1.9506019750098315e-05
+station_3T,RandomForest,season_Rainy Season,0.0013212541431437844
+station_3T,RandomForest,pm10_log,0.9178597631415432
+station_3T,RandomForest,so2_log,0.014575158651662146
+station_3T,RandomForest,o3_log,0.0189609543074723
+station_3T,RandomForest,co_log,0.023611911593053585
+station_3T,RandomForest,no2_log,0.009998676862434096
+station_3T,XGBoost,temp,0.02549237571656704
+station_3T,XGBoost,population_density,0.0
+station_3T,XGBoost,factory_area,0.0
+station_3T,XGBoost,season_Cool Season,0.05174684897065163
+station_3T,XGBoost,season_Hot Season,0.01756272278726101
+station_3T,XGBoost,season_Rainy Season,0.057233233004808426
+station_3T,XGBoost,pm10_log,0.42555177211761475
+station_3T,XGBoost,so2_log,0.04186804220080376
+station_3T,XGBoost,o3_log,0.07206036150455475
+station_3T,XGBoost,co_log,0.21174219250679016
+station_3T,XGBoost,no2_log,0.09674247354269028
+station_3T,DecisionTree,temp,0.0058664831694091
+station_3T,DecisionTree,population_density,0.0
+station_3T,DecisionTree,factory_area,0.0
+station_3T,DecisionTree,season_Cool Season,0.0013576684254330196
+station_3T,DecisionTree,season_Hot Season,2.5159728182344827e-05
+station_3T,DecisionTree,season_Rainy Season,0.0002705333031710315
+station_3T,DecisionTree,pm10_log,0.9161831262510667
+station_3T,DecisionTree,so2_log,0.010349968022156982
+station_3T,DecisionTree,o3_log,0.021542981112121475
+station_3T,DecisionTree,co_log,0.032892132482367435
+station_3T,DecisionTree,no2_log,0.01151194750609202
+station_5T,RandomForest,temp,0.012350360487517385
+station_5T,RandomForest,population_density,0.0
+station_5T,RandomForest,factory_area,0.0
+station_5T,RandomForest,season_Cool Season,0.0013024147934236176
+station_5T,RandomForest,season_Hot Season,1.9506019750098315e-05
+station_5T,RandomForest,season_Rainy Season,0.0013212541431437844
+station_5T,RandomForest,pm10_log,0.9178597631415432
+station_5T,RandomForest,so2_log,0.014575158651662146
+station_5T,RandomForest,o3_log,0.0189609543074723
+station_5T,RandomForest,co_log,0.023611911593053585
+station_5T,RandomForest,no2_log,0.009998676862434096
+station_5T,XGBoost,temp,0.02549237571656704
+station_5T,XGBoost,population_density,0.0
+station_5T,XGBoost,factory_area,0.0
+station_5T,XGBoost,season_Cool Season,0.05174684897065163
+station_5T,XGBoost,season_Hot Season,0.01756272278726101
+station_5T,XGBoost,season_Rainy Season,0.057233233004808426
+station_5T,XGBoost,pm10_log,0.42555177211761475
+station_5T,XGBoost,so2_log,0.04186804220080376
+station_5T,XGBoost,o3_log,0.07206036150455475
+station_5T,XGBoost,co_log,0.21174219250679016
+station_5T,XGBoost,no2_log,0.09674247354269028
+station_5T,DecisionTree,temp,0.0058664831694091
+station_5T,DecisionTree,population_density,0.0
+station_5T,DecisionTree,factory_area,0.0
+station_5T,DecisionTree,season_Cool Season,0.0013576684254330196
+station_5T,DecisionTree,season_Hot Season,2.5159728182344827e-05
+station_5T,DecisionTree,season_Rainy Season,0.0002705333031710315
+station_5T,DecisionTree,pm10_log,0.9161831262510667
+station_5T,DecisionTree,so2_log,0.010349968022156982
+station_5T,DecisionTree,o3_log,0.021542981112121475
+station_5T,DecisionTree,co_log,0.032892132482367435
+station_5T,DecisionTree,no2_log,0.01151194750609202
+station_61T,RandomForest,temp,0.02351629396408842
+station_61T,RandomForest,population_density,0.0
+station_61T,RandomForest,factory_area,0.0
+station_61T,RandomForest,season_Cool Season,0.0011084245502895058
+station_61T,RandomForest,season_Hot Season,1.113078478604125e-05
+station_61T,RandomForest,season_Rainy Season,0.001966757715882282
+station_61T,RandomForest,pm10_log,0.9032332192716119
+station_61T,RandomForest,so2_log,0.025340717018983175
+station_61T,RandomForest,o3_log,0.020790596359526875
+station_61T,RandomForest,co_log,0.010807236178495746
+station_61T,RandomForest,no2_log,0.013225624156335958
+station_61T,XGBoost,temp,0.022937793284654617
+station_61T,XGBoost,population_density,0.0
+station_61T,XGBoost,factory_area,0.0
+station_61T,XGBoost,season_Cool Season,0.05933069437742233
+station_61T,XGBoost,season_Hot Season,0.010988953523337841
+station_61T,XGBoost,season_Rainy Season,0.08667080104351044
+station_61T,XGBoost,pm10_log,0.36044514179229736
+station_61T,XGBoost,so2_log,0.06825366616249084
+station_61T,XGBoost,o3_log,0.0582786425948143
+station_61T,XGBoost,co_log,0.2640101909637451
+station_61T,XGBoost,no2_log,0.06908415257930756
+station_61T,DecisionTree,temp,0.024799741372977687
+station_61T,DecisionTree,population_density,0.0
+station_61T,DecisionTree,factory_area,0.0
+station_61T,DecisionTree,season_Cool Season,0.0020523642570919984
+station_61T,DecisionTree,season_Hot Season,0.0002340535658716234
+station_61T,DecisionTree,season_Rainy Season,0.0006235326671728611
+station_61T,DecisionTree,pm10_log,0.8947987740723817
+station_61T,DecisionTree,so2_log,0.03571800499148333
+station_61T,DecisionTree,o3_log,0.01612587913941465
+station_61T,DecisionTree,co_log,0.015820156458906907
+station_61T,DecisionTree,no2_log,0.009827493474699325
