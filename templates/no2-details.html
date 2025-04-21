@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NO2 Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      html, body {
+      margin: 0;
+      padding: 0;
+      }
+  
+      .content {
+      padding-top: 100px; /* Pushes content down so it's visible below the fixed header */
+      padding-left: 20px;
+      padding-right: 20px;
+      }
+      </style>
+</head>
+<body>
+    <div class="header">
+        <img src="static/logo.png" alt="Logo" class="logo"> <!-- Add logo here -->
+        <h1>Real-time Air Quality Index (AQI)</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/prediction">Prediction</a>
+            <a href="/simulation">Simulation</a>
+        </nav>
+    </div>
+    
+    <meta charset="UTF-8">
+    <title>NO2 Details</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+<div class="content">
+  <h1>NO2 Details</h1>
+
+<!-- Filter Container -->
+<div class="filter-container">
+  <div class="filter">
+    <label for="stationFilter">Select Station:</label>
+    <select id="stationFilter">
+      {% for station in stations %}
+        <option value="{{ station.name }}">{{ station.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="filter">
+    <label for="timeRangeFilter">Select Time Range:</label>
+    <select id="timeRangeFilter">
+      <option value="24h">24 Hours</option>
+      <option value="7d">7 Days</option>
+      <option value="30d">30 Days</option>
+    </select>
+  </div>
+</div>
+
+  <!-- Chart container -->
+  <canvas id="aqiChart" width="400" height="200"></canvas>
+</div>
+
+  <script>
+    // Data passed from Flask
+    const no2Data = {{ no2_data|tojson }};
+    const stationList = {{ stations|tojson }};
+
+    // Map the range options to the timeframe_days values used in the API data
+    const timeFrameMapping = {
+      '24h': 1,
+      '7d': 7,
+      '30d': 30
+    };
+
+    // Function to filter data and generate chart labels and data arrays
+    function getChartData(selectedStation, range) {
+      const timeframe = timeFrameMapping[range];
+      // Filter data based on station and timeframe_days
+      let filteredData = no2Data.filter(item =>
+        item.station === selectedStation && item.timeframe_days === timeframe
+      );
+      
+      // Sort the filtered data by datetime
+      filteredData.sort((a, b) => new Date(a.datetime) - new Date(b.datetime));
+      
+      // Create labels and NO2 data arrays
+      const labels = filteredData.map(item => {
+        const dt = new Date(item.datetime);
+        return range === '24h'
+          ? dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          : dt.toLocaleDateString([], { month: 'short', day: 'numeric' });
+      });
+      const data = filteredData.map(item => item.no2);
+      return { labels, data };
+    }
+
+    // Get initial selections
+    let selectedStation = document.getElementById('stationFilter').value;
+    let selectedRange = document.getElementById('timeRangeFilter').value;
+    let initialData = getChartData(selectedStation, selectedRange);
+
+    // Set up the initial Chart.js configuration
+    const config = {
+      type: 'bar',
+      data: {
+        labels: initialData.labels,
+        datasets: [{
+          label: 'NO2 (μg/m³)',
+          data: initialData.data,
+          backgroundColor: 'rgba(54, 162, 235, 0.5)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' },
+          title: {
+            display: true,
+            text: `NO2 Levels (${selectedStation}) - ${selectedRange === '24h' ? 'Last 24 Hours' : selectedRange === '7d' ? 'Last 7 Days' : 'Last 30 Days'}`
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: selectedRange === '24h' ? 'Time' : 'Date'
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'NO2 (μg/m³)'
+            },
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // Initialize the chart
+    const ctx = document.getElementById('aqiChart').getContext('2d');
+    let aqiChart = new Chart(ctx, config);
+
+    // Function to update the chart when filters change
+    function updateChart() {
+      selectedStation = document.getElementById('stationFilter').value;
+      selectedRange = document.getElementById('timeRangeFilter').value;
+      let newData = getChartData(selectedStation, selectedRange);
+
+      // Update chart data and labels
+      aqiChart.data.labels = newData.labels;
+      aqiChart.data.datasets[0].data = newData.data;
+      aqiChart.options.scales.x.title.text = selectedRange === '24h' ? 'Time' : 'Date';
+      aqiChart.options.plugins.title.text = `NO2 Levels (${selectedStation}) - ` +
+          (selectedRange === '24h' ? 'Last 24 Hours' : selectedRange === '7d' ? 'Last 7 Days' : 'Last 30 Days');
+      aqiChart.update();
+    }
+
+    // Listen for changes on both filters
+    document.getElementById('timeRangeFilter').addEventListener('change', updateChart);
+    document.getElementById('stationFilter').addEventListener('change', updateChart);
+  </script>
+</body>  
+
+<div class="container">
+  <header>
+      <h1>NO2 (Nitrogen Dioxide) Information and Range</h1>
+      <p>Learn more about Nitrogen Dioxide, its effects, sources, and the air quality levels it represents.</p>
+  </header>
+
+  <section class="intro">
+      <h2>What is NO2 (Nitrogen Dioxide)?</h2>
+      <p>Nitrogen Dioxide is one of a group of gases called nitrogen oxides (NOx). While all nitrogen oxides have significant effects on the environment, NO2 is the most harmful for human health.</p>
+
+      <h3>How Does NO2 Affect Health?</h3>
+      <p>Nitrogen Dioxide affects health by causing respiratory problems and contributing to the formation of fine particles (PM2.5) and ground-level ozone, both of which are also harmful when inhaled. Here are some specific health issues caused by NO2:</p>
+      <ul>
+          <li>Increased inflammation of the airways</li>
+          <li>Worsened coughing and wheezing</li>
+          <li>Increased asthma attacks</li>
+          <li>Greater likelihood of respiratory infections</li>
+      </ul>
+
+      <h3>Where Does NO2 Come From?</h3>
+      <p>NO2 is primarily released into the air from the burning of fuel. It forms from emissions from cars, trucks and buses, power plants, and off-road equipment.</p>
+      <ul>
+          <li><strong>Combustion Sources:</strong> Vehicles (especially diesel engines), power plants, and industrial facilities.</li>
+          <li><strong>Natural Sources:</strong> Lightning and microbial processes in soils.</li>
+      </ul>
+
+      <h3>How Can You Protect Yourself from NO₂?</h3>
+      <p>Here are some effective measures to reduce your exposure to nitrogen dioxide (NO₂):</p>
+      <ul>
+          <li><strong>Limit Outdoor Activities:</strong> Especially during rush hours or when NO₂ levels are elevated.</li>
+          <li><strong>Use Air Purifiers:</strong> Deploy air purifiers indoors with proper filters to reduce NO₂ levels.</li>
+          <li><strong>Avoid High Traffic Areas:</strong> Reduce time spent near busy roads or industrial sites.</li>
+          <li><strong>Monitor Local Air Quality:</strong> Use real-time air quality updates to plan your outdoor activities.</li>
+      </ul>
+
+  </section>
+
+<div class="container">
+  <h2>Nitrogen Dioxide (NO2) Range Table</h2>
+  <table>
+      <thead>
+          <tr>
+              <th>NO2 Range (ppb)</th>
+              <th>Description</th>
+              <th>Emoji</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>0 - 50</td>
+              <td>Good air quality</td>
+              <td class="emoji good">🙂</td>
+          </tr>
+          <tr>
+              <td>51 - 100</td>
+              <td>Moderate air quality</td>
+              <td class="emoji moderate">😐</td>
+          </tr>
+          <tr>
+              <td>101 - 150</td>
+              <td>Unhealthy for Sensitive Groups</td>
+              <td class="emoji unhealthy">🙁</td>
+          </tr>
+          <tr>
+              <td>151 - 200</td>
+              <td>Unhealthy air quality</td>
+              <td class="emoji very-unhealthy">😢</td>
+          </tr>
+          <tr>
+              <td>201 - 300</td>
+              <td>Very Unhealthy air quality</td>
+              <td class="emoji hazardous">😭</td>
+          </tr>
+          <tr>
+              <td>301+</td>
+              <td>Hazardous air quality</td>
+              <td class="emoji hazardous">☠️</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+
+</body> 
+
+</html>
