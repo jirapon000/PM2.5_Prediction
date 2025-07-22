@@ -1,7 +1,7 @@
 # 🌫️ PM2.5 Prediction and Air Quality Monitoring Dashboard
 
-This project offers **real-time monitoring** and **predictive insights** into air quality conditions using the **Air Quality Index (AQI)**.  
-It focuses on pollutant concentrations such as **PM2.5, PM10, SO₂, NO₂, CO**, and **O₃**, helping users make informed decisions and take preventive actions based on both current and forecasted data.
+This project offers real-time monitoring and predictive insights into air quality conditions within **Bangkok, Thailand**, using the Air Quality Index (AQI).  
+It focuses on pollutant concentrations such as **PM2.5, PM10, SO₂, NO₂, CO**, and **O₃**, helping users make informed decisions and take preventive actions based on both current and forecasted data specific to this urban area.
 
 ## 🚀 Key Features
 
